@@ -6,9 +6,8 @@ export default styled.div`
     position: relative;
     z-index: 5;
     font-size: 1rem;
-    text-shadow: 0 1px 6px rgb(0 0 0 / 20%), 0 6px 6px rgb(0 0 0 / 5%);
     position: absolute;
-    bottom: 2rem;
+    bottom: 7vw;
     left: 0;
     right: 0;
     text-align: center;
@@ -18,10 +17,11 @@ export default styled.div`
     justify-content: center;
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: 400;
     background: rgba(70,30,70, 0.6);
     backdrop-filter: blur(8px);
-    padding: 0 10px 0 10px;
+    padding: 1vw 20px;
     box-sizing: border-box;
     max-width: 100%;
 `

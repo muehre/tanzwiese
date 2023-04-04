@@ -16,13 +16,19 @@ type Props = {
 }
 
 const Navigation: React.FC<Props> = () => {
-    const { pathname } = useLocation();
+    const { pathname, hash } = useLocation();
     const navigate = useNavigate()
     const { state } = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
       }, [pathname]);
+
+    useEffect(() => {
+        if (!hash || hash === '') {
+            window.scrollTo(0, 0);
+        }
+      }, [hash]);
 
     return (
         <>
