@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { config, animated, useSpring, easings } from 'react-spring'
+import React from 'react'
+import { animated } from 'react-spring'
 import styled from 'styled-components'
 
 type Props = {

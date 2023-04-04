@@ -1,4 +1,3 @@
-import { Avatar } from "@mui/material";
 import React, { PropsWithChildren } from "react";
 import Wrapper from "./Wrapper.styled";
 import ContentWrapper from "./ContentWrapper.styled";

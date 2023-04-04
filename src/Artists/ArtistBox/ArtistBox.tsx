@@ -6,7 +6,7 @@ import Wrapper from "./Wrapper.styled";
 import NameWrapper from "./NameWrapper.styled";
 import { useLocation, useNavigate } from "react-router-dom";
 import { NAVIGATION_INDEXES } from "../../Navigation/NavigationItem/NavigationItem";
-import { useSpring, config, to } from "react-spring";
+import { useSpring, config } from "react-spring";
 
 
 type Props = {
@@ -22,6 +22,7 @@ const ArtistBox: React.FC<Props> = ({ id, hue = 0, container }) => {
     const currentRouteDepth : number =  NAVIGATION_INDEXES.indexOf('/' + location.pathname.split('/')[1]) || 0
     const wrapperRef = useRef<HTMLDivElement>(null)
     const [offset, setOffset] = useState<number>(0)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [styles, api] = useSpring(() => ({
         size: '1',
         x: '0px',
