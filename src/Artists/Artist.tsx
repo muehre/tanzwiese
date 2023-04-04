@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import ReactPlayer from 'react-player'
 import {Spotify} from 'react-spotify-embed'
+import { Online } from "react-detect-offline";
 
 const platformIcons: {
     [key in SocialPlatforms]: JSX.Element
@@ -43,17 +44,19 @@ const Artist: React.FC = () => {
                 <UiBox style={{ whiteSpace: "pre-wrap" }}>{artist.description}</UiBox>
             )}
 
-            {artist && artist.urls && typeof artist.urls !== "undefined" && artist.urls.spotify && (
-                <UiBox fullwidth>
-                    <Spotify width={"100%"} link={artist.urls.spotify} />
-                </UiBox>
-            )}
+            <Online>
+                {artist && artist.urls && typeof artist.urls !== "undefined" && artist.urls.spotify && (
+                    <UiBox fullwidth>
+                        <Spotify width={"100%"} link={artist.urls.spotify} />
+                    </UiBox>
+                )}
 
-            {artist && artist.urls && typeof artist.urls !== "undefined" && artist.urls.soundcloud && (
-                <UiBox fullwidth>
-                    <ReactPlayer playsinline={true} height="420px" url={artist.urls.soundcloud} width="100%" />
-                </UiBox>
-            )}
+                {artist && artist.urls && typeof artist.urls !== "undefined" && artist.urls.soundcloud && (
+                    <UiBox fullwidth>
+                        <ReactPlayer playsinline={true} height="420px" url={artist.urls.soundcloud} width="100%" />
+                    </UiBox>
+                )}
+            </Online>
 
             {artist && artist.urls && (
                 <Box sx={{ display: 'flex', flexDirection: 'column', mb: 2, alignItems: 'flex-start', justifyContent: 'flex-start' }}>
