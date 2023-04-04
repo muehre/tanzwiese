@@ -186,7 +186,7 @@ const artists: Artist[] = [
         "id": "420",
         "name": "Konstrukt",
         "image": konstrukt,
-        "description": "I live in Berlin and started DJing electronic music in winter 2021.\n\nNormally my focus was on classical music, because I play violin and piano. Since electronic music is widespread in Berlin, I also became interested in dealing with it musically. My goal is to DJ and play the violin together. My music should go in the direction of good mood, happiness and sunshine, so my focus is mainly on Afro House, Funky House und Indie Dance.",
+        "description": "Kommt noch",
         "urls": {
             "soundcloud": "https://soundcloud.com/konstrukt-hh",
             "spotify": "https://open.spotify.com/artist/1vJqDoYHCd9cFqGK6ztMfP?si=fqk2y2usQtOwIZaeJaYouQ",
