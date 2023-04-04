@@ -3,7 +3,7 @@ import './App.css';
 import 'add-to-calendar-button/assets/css/atcb.css'
 import Background from './Background';
 import { useTransition, a, config } from 'react-spring'
-import { useLocation, Link, Routes, Route, useNavigate } from 'react-router-dom'
+import { useLocation, Routes, Route, useNavigate } from 'react-router-dom'
 import {Content, Page, Pages} from './Ui'
 import { ThemeProvider } from 'styled-components';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
