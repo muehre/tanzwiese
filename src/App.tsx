@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import 'add-to-calendar-button/assets/css/atcb.css'
 import Background from './Background';
@@ -6,12 +6,14 @@ import { useTransition, a, config } from 'react-spring'
 import { useLocation, Link, Routes, Route, useNavigate } from 'react-router-dom'
 import {Content, Page, Pages} from './Ui'
 import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import theme, { muiTheme } from './theme';
 import GlobalStyles from './globalStyles';
 import Startpage from './Startpage';
-import Artists from './Artists';
+import Artists, { Artist } from './Artists';
 import Timetable from './Timetable';
 import Navigation from './Navigation';
+import { NotificationProvider } from './Notification';
 import { useSwipeable } from 'react-swipeable';
 
 const NAVIGATION_INDEXES = [
@@ -22,7 +24,7 @@ const NAVIGATION_INDEXES = [
 ]
 
 const getAnimationSettings = (current: number, previous: number) => {
-  if (current < previous) {
+  if (current <= previous) {
     return {
       enter: { 
         from: {
@@ -101,27 +103,32 @@ const getAnimationSettings = (current: number, previous: number) => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Background />
-      <Content {...handlers}> 
-        <Pages>
-          {transitions((styles, item) => {
-            return (
-              <Page as={a.div} style={styles}>
-                <Routes location={item}>
-                  <Route index element={<Startpage />} />
-                  <Route path="timetable" element={<Timetable />} />
-                  <Route path="artists" element={<Artists />} />
-                  <Route path="map" element={<></>} />
-                </Routes>
-              </Page>
-            )
-          })}
-        </Pages>
-      </Content>
-      <Navigation />
-    </ThemeProvider>
+    <MuiThemeProvider theme={muiTheme}>
+      <NotificationProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <Background />
+          <Content {...handlers}> 
+            <Pages>
+              {transitions((styles, item) => {
+                return (
+                  <Page as={a.div} style={styles}>
+                    <Routes location={item}>
+                      <Route index element={<Startpage />} />
+                      <Route path="timetable" element={<Timetable />} />
+                      <Route path="artists" element={<Artists />} />
+                      <Route path="artists/:id" element={<Artist />} />
+                      <Route path="map" element={<></>} />
+                    </Routes>
+                  </Page>
+                )
+              })}
+            </Pages>
+          </Content>
+          <Navigation />
+        </ThemeProvider>
+      </NotificationProvider>
+    </MuiThemeProvider>
   )
 }
 

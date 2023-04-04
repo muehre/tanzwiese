@@ -9,4 +9,5 @@ export default styled.div`
     position: relative;
     z-index: 200;
     overflow: hidden;
+    padding-bottom: 68px;
 `

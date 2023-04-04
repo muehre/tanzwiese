@@ -9,11 +9,12 @@ type Props = {
 }
 
 export default styled.div<Props>`
-    min-height: 100vh;
+    min-height: 20vh;
     display: block;
     box-sizing: border-box;
     padding: ${({theme}) => theme.spacing(1)};
-    backdrop-filter: 
+    backdrop-filter:
+        blur(1px)
         hue-rotate(${({ hue }) => `${hue || 0}deg`}) 
         contrast(${({ contrast }) => `${contrast || 1}`})
         brightness(${({ brightness }) => `${brightness || 1}`})

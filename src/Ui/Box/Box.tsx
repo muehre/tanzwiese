@@ -1,9 +1,14 @@
-import React, { PropsWithChildren} from "react";
+import React from "react";
 import Wrapper from "./Wrapper.styled";
+import { BoxProps } from "@mui/system";
 
 
-const Box: React.FC<PropsWithChildren> = ({ children }) => (
-    <Wrapper>{children}</Wrapper>
+interface Props extends BoxProps {
+    fullwidth?: boolean
+    onClick?: () => void
+}
+const Box: React.FC<Props> = ({ children, onClick = () => {}, fullwidth = false, color, ref,  ...rest }) => (
+    <Wrapper {...rest} onClick={onClick} fullwidth>{children}</Wrapper>
 )
 
 export default Box

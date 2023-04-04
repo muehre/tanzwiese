@@ -10,7 +10,7 @@ type Props = {
     to: string
 }
 
-const NAVIGATION_INDEXES = [
+export const NAVIGATION_INDEXES = [
     '/',
     '/timetable',
     '/artists',
@@ -29,7 +29,7 @@ const NavigationItem: React.FC<Props> = ({ label, icon, to }) => {
     const currentRouteDepth : number =  NAVIGATION_INDEXES.indexOf('/' + location.pathname.split('/')[1]) || 0
 
     return (
-        <Wrapper isactive={active ? 1 : 0} as={Link} to={to} state={{ previousRouteDepth: currentRouteDepth }}>
+        <Wrapper isactive={active ? 1 : 0} as={Link} to={to} state={{ previousRouteDepth: currentRouteDepth, from: location.pathname }}>
             <Icon>
                 {icon}
             </Icon>

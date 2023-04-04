@@ -1,3 +1,3 @@
-import ArtistBoxStyled from "./ArtistBox.styled";
+import ArtistBox from "./ArtistBox";
 
-export default ArtistBoxStyled
+export default ArtistBox
