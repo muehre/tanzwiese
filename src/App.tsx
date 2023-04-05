@@ -3,25 +3,22 @@ import './App.css';
 import 'add-to-calendar-button/assets/css/atcb.css'
 import Background from './Background';
 import { useTransition, a, config } from 'react-spring'
-import { useLocation, Routes, Route, useNavigate } from 'react-router-dom'
+import { useLocation, Routes, Route, useNavigate, Link } from 'react-router-dom'
 import {Content, Page, Pages} from './Ui'
 import { ThemeProvider } from 'styled-components';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import { Container, ThemeProvider as MuiThemeProvider } from '@mui/material';
 import theme, { muiTheme } from './theme';
 import GlobalStyles from './globalStyles';
 import Startpage from './Startpage';
 import Artists, { Artist } from './Artists';
+import Impressum from './Impressum';
 import Timetable from './Timetable';
+import Map from './Map';
 import Navigation from './Navigation';
 import { NotificationProvider } from './Notification';
 import { useSwipeable } from 'react-swipeable';
-
-const NAVIGATION_INDEXES = [
-  '/',
-  '/timetable',
-  '/artists',
-  '/map',
-]
+import { Box } from '@mui/system';
+import { NAVIGATION_INDEXES } from './Navigation/NavigationItem/NavigationItem';
 
 const getAnimationSettings = (current: number, previous: number) => {
   if (current <= previous) {
@@ -29,7 +26,7 @@ const getAnimationSettings = (current: number, previous: number) => {
       enter: { 
         from: {
           transform : `translate3d(-100%,0,0)`,
-          opacity: `1`,
+          opacity: `0`,
         },
         to: {
           transform : `translate3d(0%,0,0)`,
@@ -44,7 +41,7 @@ const getAnimationSettings = (current: number, previous: number) => {
         },
         to: {
           transform : `translate3d(100%,0,0)`,
-          opacity: `1`,
+          opacity: `0`,
         }
       },
     }
@@ -53,7 +50,7 @@ const getAnimationSettings = (current: number, previous: number) => {
       enter: { 
         from: {
           transform : `translate3d(100%,0,0)`,
-          opacity: `1`,
+          opacity: `0`,
         },
         to: {
           transform : `translate3d(0%,0,0)`,
@@ -68,7 +65,7 @@ const getAnimationSettings = (current: number, previous: number) => {
         },
         to: {
           transform : `translate3d(-100%,0,0)`,
-          opacity: `1`,
+          opacity: `0`,
         }
       },
     }
@@ -109,21 +106,27 @@ const getAnimationSettings = (current: number, previous: number) => {
           <GlobalStyles />
           <Background />
           <Content {...handlers}> 
-            <Pages>
-              {transitions((styles, item) => {
-                return (
-                  <Page as={a.div} style={styles}>
-                    <Routes location={item}>
-                      <Route index element={<Startpage />} />
-                      <Route path="timetable" element={<Timetable />} />
-                      <Route path="artists" element={<Artists />} />
-                      <Route path="artists/:id" element={<Artist />} />
-                      <Route path="map" element={<></>} />
-                    </Routes>
-                  </Page>
-                )
-              })}
-            </Pages>
+            <Container>
+                <Pages>
+                  {transitions((styles, item) => {
+                    return (
+                      <Page as={a.div} style={styles}>
+                          <Routes location={item}>
+                            <Route index element={<Startpage />} />
+                            <Route path="timetable" element={<Timetable />} />
+                            <Route path="artists" element={<Artists />} />
+                            <Route path="artists/:id" element={<Artist />} />
+                            <Route path="map" element={<Map />} />
+                            <Route path="impressum" element={<Impressum/>} />
+                          </Routes>
+                      </Page>
+                    )
+                  })}
+                </Pages>
+                <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                  <Link to={"/impressum"}>Impressum</Link>
+                </Box>
+            </Container>
           </Content>
           <Navigation />
         </ThemeProvider>

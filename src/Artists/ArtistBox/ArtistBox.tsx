@@ -52,12 +52,6 @@ const ArtistBox: React.FC<Props> = ({ id, hue = 0, container }) => {
        }, [offset, api, id])
 
     useEffect(() => {
-        if (wrapperRef.current !== null && container !== null) {
-            console.log(wrapperRef.current.offsetTop)
-        }
-    }, [wrapperRef, container])
-
-    useEffect(() => {
         if (wrapperRef.current === null) return
         
         const listener = () => {
@@ -80,7 +74,11 @@ const ArtistBox: React.FC<Props> = ({ id, hue = 0, container }) => {
     return (
         <Wrapper onClick={navigateToArtist} ref={wrapperRef}>
             <AvatarWrapper hue={hue}>
-                <Avatar src={artist.image} sx={{ width: '32vw', height: "32vw", boxShadow: '50px -20px 50px rgba(80, 20, 100, 0.2), -50px -30px 60px rgba(255, 170, 90, 0.1), -40px 60px 80px rgba(255, 255, 255, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.4)' }} />
+                <Avatar src={artist.image} sx={{ 
+                    width: { xs: '30vw', sm: '20vw', md: '18vw', lg: "220px"},
+                    height: { xs: '30vw', sm: '20vw', md: '18vw', lg: "220px"},
+                    boxShadow: '50px -20px 50px rgba(80, 20, 100, 0.2), -50px -30px 60px rgba(255, 170, 90, 0.1), -40px 60px 80px rgba(255, 255, 255, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.4)'
+                }} />
                 <NameWrapper>{artist.name}</NameWrapper>
             </AvatarWrapper>
         </Wrapper>

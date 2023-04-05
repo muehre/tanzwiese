@@ -199,7 +199,8 @@ const useArtists: () => Artist[] = () => {
     return artists
 }
 
-const useArtist: (id: string) => Artist | null = (id) => {
+const useArtist: (id?: string) => Artist | null = (id) => {
+    if (!id) return null
     return artists.find(artist => artist.id === id) || null
 }
 

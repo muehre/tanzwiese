@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { config, animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 
@@ -7,7 +7,7 @@ type Props = {
   scrollNegation: number,
 }
 
-const OFFSET_MULTIPLIER = 14
+const OFFSET_MULTIPLIER = 30
 
 const Wrapper = styled(animated.div)`
     position: fixed;
@@ -38,7 +38,7 @@ const Wrapper = styled(animated.div)`
 
 const Foreground: React.FC<Props> = ({ offset, scrollNegation }) => {
   const [styles, api] = useSpring(() => ({
-    left: `0vh`,
+    left: `0vw`,
     config: {
       ...config.wobbly,
       mass: 1.5,
@@ -47,12 +47,19 @@ const Foreground: React.FC<Props> = ({ offset, scrollNegation }) => {
     },
   }))
 
+  const imageRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-   api.start({ left: `${offset * -OFFSET_MULTIPLIER + -10}vh`})
+    if (imageRef.current === null) return
+    const max = Math.floor((imageRef.current.clientWidth / window.innerWidth - 1) * -100);
+    let relativeOffset = offset * -OFFSET_MULTIPLIER 
+    if (relativeOffset < max) relativeOffset = max
+
+   api.start({ left: `${relativeOffset}vw`})
   }, [offset, api])
 
   return (
-    <Wrapper style={{ 
+    <Wrapper ref={imageRef} style={{ 
       left: styles.left,
       transform: `translateY(${(scrollNegation / -20)}px)`,
     }} />

@@ -178,4 +178,18 @@ const useTimeTable = (idFilter: string[] | null = null) => {
     })
 }   
 
-export { useTimeTable }
+const useArtistGigs = (artistId?: string ) => {
+    if (!artistId) return []
+    return timetable.filter(gig => {
+        return gig.artistId === artistId
+    })
+}
+
+const useTimeTableEvent = (id?: string) => {
+    if (!id) return undefined
+    return timetable.filter(gig => {
+        return gig.id === id
+    })[0]
+}
+
+export { useTimeTable, useArtistGigs, useTimeTableEvent }

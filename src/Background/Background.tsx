@@ -7,16 +7,9 @@ import Mountains from './Mountains'
 import ScrollShadow from './ScrollShadow'
 import { useLocation } from 'react-router-dom'
 import Wrapper from './Wrapper.styled'
+import { NAVIGATION_INDEXES } from '../Navigation/NavigationItem/NavigationItem'
 
 const isBrowser = typeof window !== `undefined`
-
-
-const NAVIGATION_INDEXES = [
-    '/',
-    '/timetable',
-    '/artists',
-    '/map',
-  ]
 
 const getScrollPosition = () => {
     if (!isBrowser) return { x: 0, y: 0 }

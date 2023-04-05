@@ -15,6 +15,7 @@ export const NAVIGATION_INDEXES = [
     '/timetable',
     '/artists',
     '/map',
+    '/impressum'
   ]
 
 

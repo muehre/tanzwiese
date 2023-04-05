@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { animated, useSpring, config } from 'react-spring'
+import React, { useEffect, useRef } from 'react'
+import { animated, useSpring, config, SpringRef } from 'react-spring'
 import styled from 'styled-components'
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 }
 
 
-const OFFSET_MULTIPLIER = 23
+const OFFSET_MULTIPLIER = 60
 
 const Wrapper = styled(animated.div)`
     position: fixed;
@@ -38,7 +38,7 @@ const Wrapper = styled(animated.div)`
 
 const Foreground: React.FC<Props> = ({ offset, scrollNegation }) => {
   const [styles, api] = useSpring(() => ({
-    left: `0vh`,
+    left: `0vw`,
     config: {
       ...config.wobbly,
       mass: 1.5,
@@ -46,13 +46,34 @@ const Foreground: React.FC<Props> = ({ offset, scrollNegation }) => {
       tension: 70,
     },
   }))
+  const imageRef = useRef<HTMLDivElement>(null)
+
+  const reposition = (currentOffset: number, currentApi: SpringRef<{ left: string; }>, immidiate: boolean = false) => {
+    if (imageRef.current === null) return
+    const max = Math.floor((imageRef.current.clientWidth / window.innerWidth - 1) * -100) + 3;
+    let relativeOffset = currentOffset * -OFFSET_MULTIPLIER + -12
+    if (relativeOffset < max) relativeOffset = max
+
+    currentApi.start({ left: `${relativeOffset}vw`, config: { duration: immidiate ? 0 : undefined }})
+  }
 
   useEffect(() => {
-   api.start({ left: `${offset * -OFFSET_MULTIPLIER + -12}vh`})
+    const listener = () => {
+      reposition(offset, api, true)
+    }
+    window.addEventListener("resize", listener)
+    return () => {
+      window.removeEventListener("resize", listener)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    reposition(offset, api)
   }, [offset, api])
 
   return (
-    <Wrapper style={{ 
+    <Wrapper ref={imageRef} style={{ 
       left: styles.left, 
       transform: `scale(${scrollNegation / 1850 + 1}) translate3D(0,${Math.floor(Math.log(scrollNegation * 0.1) * 2)}px,0)`,
     }}

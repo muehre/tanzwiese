@@ -1,5 +1,5 @@
-import React from 'react'
-import { animated } from 'react-spring'
+import React, { useEffect } from 'react'
+import { animated, useSpring, config, easings } from 'react-spring'
 import styled from 'styled-components'
 
 type Props = {
@@ -19,10 +19,26 @@ const Wrapper =  styled(animated.div)`
 `
 
 const Planets: React.FC<Props> = ({ scrollNegation }) => {
+  const [styles, api] = useSpring(() => ({
+    opacity: `0`,
+    config: {
+      ...config.wobbly,
+      mass: 1.5,
+      friction: 12,
+      tension: 120,
+      easing: easings.easeInOutBounce,
+    },
+  }))
+
+  useEffect(() => {
+    api.start({ 
+      opacity: `${1/120*scrollNegation}`,
+    })
+  }, [scrollNegation, api])
 
   return (
     <Wrapper style={{
-        opacity: (1/120*scrollNegation),
+        opacity: styles.opacity,
     }} />
   )
   

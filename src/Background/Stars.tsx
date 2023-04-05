@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { config, animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 
@@ -44,13 +44,18 @@ const Stars: React.FC<Props> = ({ offset }) => {
       tension: 60,
     },
   }))
+  const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-   api.start({ left: `${offset * -OFFSET_MULTIPLIER - 10}vh`})
+    if (imageRef.current === null) return
+    const max = Math.floor((imageRef.current.clientWidth / window.innerWidth - 1) * -100);
+    let relativeOffset = offset * -OFFSET_MULTIPLIER - 10
+    if (relativeOffset < max) relativeOffset = max
+   api.start({ left: `${relativeOffset}vh`})
   }, [offset, api])
 
   return (
-    <Wrapper style={{ left: styles.left }} />
+    <Wrapper ref={imageRef} style={{ left: styles.left }} />
   )
   
 }

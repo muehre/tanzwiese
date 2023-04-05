@@ -133,7 +133,10 @@ const Timetable: React.FC = () => {
 
 
     return (
-        <>
+        <Box sx={{
+            overflow: 'hidden',
+            borderRadius: '20px',
+        }}>
         <Box sx={{
             background: 'rgba(45,140,200,0.1)',
             flexDirection: 'row',
@@ -144,8 +147,9 @@ const Timetable: React.FC = () => {
         }}>
             <Box sx={{
                 display: 'flex',
-                p: 2,
-                pr: 3,
+                p: 1,
+                pt: 2,
+                pb: 2,
                 opacity: 0.5,
             }}>
                 <CalendarMonthIcon />
@@ -153,7 +157,7 @@ const Timetable: React.FC = () => {
             <Box sx={{
                 display: 'flex',
                 flex: 1,
-                p: 0,
+                p: 1,
             }}>      
                 <FormControl fullWidth sx={{
                 }}>
@@ -181,7 +185,9 @@ const Timetable: React.FC = () => {
             </Box>
             <Box sx={{
                 display: 'flex',
-                p: 2,
+                p: 1,
+                pt: 2,
+                pb: 2,
             }}>
                 <IconButton aria-label="like" onClick={() => toggleShowFavorites()}>
                     {showFavorites ? 
@@ -194,25 +200,25 @@ const Timetable: React.FC = () => {
 
         {Object.keys(daylieSortedTimetable[selectedDay]).map((timeString: string) => (
             <TimetableBox key={timeString} {...boxSettings[timeString as 'day' | 'night']}>
-                        {daylieSortedTimetable[selectedDay][timeString].map(gig => (
-                        <Fragment key={gig.id}>
-                            {((showFavorites && favorites.indexOf(gig.id) >= 0) || !showFavorites) && (
-                                <TimetableEvent 
-                                    endAt={gig.endAt}
-                                    startAt={gig.startAt} 
-                                    artistId={gig.artistId}
-                                    description={gig.description}
-                                    key={gig.id}
-                                    openEnd={gig.openEnd}
-                                    isFavorite={favorites.indexOf(gig.id) >= 0}
-                                    onFavorize={() => handleAddFavorite(gig.id)}
-                                />
-                            )}
-                        </Fragment>
-                        ))}
-                    </TimetableBox>
+                {daylieSortedTimetable[selectedDay][timeString].map(gig => (
+                    <Fragment key={gig.id}>
+                        {((showFavorites && favorites.indexOf(gig.id) >= 0) || !showFavorites) && (
+                            <TimetableEvent 
+                                endAt={gig.endAt}
+                                startAt={gig.startAt} 
+                                artistId={gig.artistId}
+                                description={gig.description}
+                                key={gig.id}
+                                openEnd={gig.openEnd}
+                                isFavorite={favorites.indexOf(gig.id) >= 0}
+                                onFavorize={() => handleAddFavorite(gig.id)}
+                            />
+                        )}
+                    </Fragment>
                 ))}
-        </>
+            </TimetableBox>
+        ))}
+        </Box>
     )
 }
 

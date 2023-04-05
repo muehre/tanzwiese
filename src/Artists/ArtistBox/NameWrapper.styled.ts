@@ -7,7 +7,7 @@ export default styled.div`
     z-index: 5;
     font-size: 1rem;
     position: absolute;
-    bottom: 7vw;
+    bottom: 24px;
     left: 0;
     right: 0;
     text-align: center;

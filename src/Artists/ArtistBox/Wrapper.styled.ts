@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 export default styled(animated.div)`
     display: flex;
-    width: 50%;
     align-content: center;
     align-items: center;
     justify-content: center;

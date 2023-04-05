@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { config, animated, useSpring, easings } from 'react-spring'
 import styled from 'styled-components'
 
@@ -6,7 +6,7 @@ type Props = {
   offset: number
 }
 
-const OFFSET_MULTIPLIER = 12.4
+const OFFSET_MULTIPLIER = 22
 
 const Wrapper =  styled(animated.div)`
     position: fixed;
@@ -35,7 +35,7 @@ const Wrapper =  styled(animated.div)`
 
 const Planets: React.FC<Props> = ({ offset }) => {
   const [styles, api] = useSpring(() => ({
-    left: `0vh`,
+    left: `0vw`,
     config: {
       ...config.wobbly,
       mass: 1.5,
@@ -44,13 +44,19 @@ const Planets: React.FC<Props> = ({ offset }) => {
       easing: easings.easeInOutBounce,
     },
   }))
+  const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-   api.start({ left: `${offset * -OFFSET_MULTIPLIER -6}vh`})
+    if (imageRef.current === null) return
+    const max = Math.floor((imageRef.current.clientWidth / window.innerWidth - 1) * -100);
+    let relativeOffset = offset * -OFFSET_MULTIPLIER -6
+    if (relativeOffset < max) relativeOffset = max
+
+   api.start({ left: `${relativeOffset}vw`})
   }, [offset, api])
 
   return (
-    <Wrapper style={{ 
+    <Wrapper ref={imageRef} style={{ 
       left: styles.left
      }} />
   )

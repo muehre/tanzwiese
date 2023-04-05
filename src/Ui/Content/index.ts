@@ -1,3 +1,3 @@
-import Content from './Content.styled'
+import Content from './Wrapper.styled'
 
 export default Content

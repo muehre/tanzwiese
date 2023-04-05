@@ -1,16 +1,16 @@
 
-import abreise from './Teaser/abreise.jpg'
-import aufbau from './Teaser/aufbau.jpg'
-import camping from './Teaser/camping.jpg'
-import duschen from './Teaser/duschen.jpg'
-import food from './Teaser/food.jpg'
-import mitmachen from './Teaser/mitmachen.jpg'
-import muell from './Teaser/muell.jpg'
-import musik from './Teaser/musik.jpg'
-import nachtruhe from './Teaser/nachtruhe.jpg'
-import parken from './Teaser/parken.jpg'
-import rauchen from './Teaser/rauchen.jpg'
-import workshops from './Teaser/workshops.jpg'
+import abreise from './TeaserImages/abreise.jpg'
+import aufbau from './TeaserImages/aufbau.jpg'
+import camping from './TeaserImages/camping.jpg'
+import duschen from './TeaserImages/duschen.jpg'
+import food from './TeaserImages/food.jpg'
+import mitmachen from './TeaserImages/mitmachen.jpg'
+import muell from './TeaserImages/muell.jpg'
+import musik from './TeaserImages/musik.jpg'
+import nachtruhe from './TeaserImages/nachtruhe.jpg'
+import parken from './TeaserImages/parken.jpg'
+import rauchen from './TeaserImages/rauchen.jpg'
+import workshops from './TeaserImages/workshops.jpg'
 import { Button, Link } from '@mui/material';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -45,7 +45,7 @@ export type InfoElement = {
     image?: string
 }
 
-const startpageInfos: InfoElement[] = [
+const FAQ: InfoElement[] = [
     {
         title: "Anreise & Abreise",
         anchor: "anreise-abreise",
@@ -354,4 +354,4 @@ const startpageInfos: InfoElement[] = [
     },
 ]
 
-export default startpageInfos
+export { FAQ }
