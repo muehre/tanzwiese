@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, PrimaryBox } from '../../Ui'
+import { PrimaryBox } from '../../Ui'
 import { Box as MuiBox, Link } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';

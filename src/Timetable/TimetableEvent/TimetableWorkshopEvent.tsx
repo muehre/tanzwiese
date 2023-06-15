@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { Box, SecondaryBox } from '../../Ui'
-import { Box as MuiBox, Link } from '@mui/material'
+import { SecondaryBox } from '../../Ui'
+import { Box as MuiBox } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Button from '@mui/material/Button';
-import Diversity1Rounded from '@mui/icons-material/Diversity1Rounded';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { NAVIGATION_INDEXES } from '../../Navigation/NavigationItem/NavigationItem';
 
 
 type Props = {
@@ -24,9 +21,6 @@ type Props = {
 
 const TimetableEvent: React.FC<Props> = ({ startAt, endAt, openEnd, description, onFavorize = () => {}, isFavorite = false, name, location: locationName }) => {
     const [isExtended, setIsExtended] = useState<boolean>(false)
-    const navigate = useNavigate()
-    const location = useLocation()
-    const currentRouteDepth : number =  NAVIGATION_INDEXES.indexOf('/' + location.pathname.split('/')[1]) || 0
 
     const handleExtendToggle = () => {
         setIsExtended(!isExtended)
