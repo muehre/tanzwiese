@@ -152,7 +152,7 @@ const FAQ: InfoElement[] = [
                     Bitte achtet darauf, wiederverwendbare Behälter und Pfandflaschen zu nutzen, da wir möglichst wenig Müll produzieren möchten.
                 </div>
                 <div> 
-                    Zusätzlich bieten wir Pommes, Frühlingsrollen, Waffeln, Kuchen. Wassermelonen und weitere Snacks an. Zu Trinken wird es verschiedene Limos, Bier, Radler, Cocktails, Kaffee und Tee geben. Bezahlen könnt ihr mit Planeten (siehe Planeten).
+                    Zusätzlich haben wir ein breites Angebot an veganen und vegetarischen Gerichten. Zu Trinken wird es verschiedene Limos, Bier, Radler, Cocktails, Kaffee und Tee geben. Bezahlen könnt ihr mit Planeten (siehe Planeten).
                 </div>
                 <div> 
                     Den nächsten Supermarkt findet ihr in Niedernhall (ca. 10 Minuten mit dem Auto).  
