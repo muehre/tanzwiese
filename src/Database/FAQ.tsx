@@ -269,7 +269,7 @@ const FAQ: InfoElement[] = [
         content: (
             <>
                 <div>
-                    Um das Hantieren mit Euros auf dem Festival zu vermeiden und damit ihr euch sorgenlos auf den Kosmos Tanzwiese einlassen könnt, werden hier Getränke und Essen nicht mit irdischem Geld sondern mit Planeten beglichen. Damit entspricht ein Planet mindestens einem Euro (eher viel mehr!). Fünf dieser handgepressten Unikate bekommt ihr mit eurem Bändchen am Einlass Falls ihr mehr braucht, kein Problem, wendet euch an die hilfsbereiten Tanzbienen, die ihr am T-Shirt mit Biene erkennt.
+                    Um das Hantieren mit Euros auf dem Festival zu vermeiden und damit ihr euch sorgenlos auf den Kosmos Tanzwiese einlassen könnt, werden hier Getränke und Essen nicht mit irdischem Geld sondern mit Planeten beglichen. Damit entspricht ein Planet mindestens zwei Euro (eher viel mehr!). Zwei dieser handgepressten Unikate bekommt ihr mit eurem Bändchen am Einlass Falls ihr mehr braucht, kein Problem, wendet euch an die hilfsbereiten Tanzbienen, die ihr am T-Shirt mit Biene erkennt.
                 </div>
             </>
         ),
