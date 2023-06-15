@@ -54,7 +54,7 @@ const FAQ: InfoElement[] = [
         content: (
             <>
                 <div>
-                    Der Einlass ist am 12.08.22 ab 14:00 Uhr bis 20:00 Uhr. 
+                    Der Einlass ist am 15.06.23 ab 14:00 Uhr bis 20:00 Uhr. 
                 </div>
                 <div>
                     Falls ihr früher oder später anreisen möchtet, meldet euch gerne bei uns. Die Tanzwiese findet in der Nähe von Künzelsau statt. Die genaue Adresse schicken wir euch per Mail, nachdem ihr den Unkostenbeitrag bezahlt habt.
@@ -94,7 +94,7 @@ const FAQ: InfoElement[] = [
                     Wir wollen alle eine schöne Zeit miteinander verbringen und bitten euch daher aufeinander acht zugeben. Doch auch auf der Tanzwiese kann übergriffiges Verhalten nicht komplett ausgeschlossen werden. Daher wird es während des Festivals ein Awareness-Team geben, das euch bei jeglicher Art von Übergriffen beiseite stehen wird.
                 </div>
                 <div>  
-                    Falls ihr euch unwohl fühlt, sexualisierte Gewalt oder Diskriminierung erlebt, wendet euch an diese Telefonnummer: 0157 / 557 445 93 (Thea) oder sucht eine Tanzbiene auf (erkennbar am T-Shirt mit Biene). Sie werden euch bei Seite stehen und helfen.
+                    Falls ihr euch unwohl fühlt, sexualisierte Gewalt oder Diskriminierung erlebt, wendet euch an diese Telefonnummern: 0157 / 557 445 93 (Thea), +33 661 73 82 15 (Sophie), 01575 / 4199 229 (Céline) oder sucht eine Tanzbiene mit Armbinde (Grün) auf. Sie werden euch bei Seite stehen und helfen.
                 </div>
             </>
         ),
