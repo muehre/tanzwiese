@@ -207,6 +207,16 @@ const timetable = [
         "location": Locations.JupiterJurte,
         "type": GigType.Act,
     },
+    {
+        "id": "123",
+        "artistId": "18",
+        "startAt": "2023-06-18T16:00:00",
+        "endAt": "2023-06-18T18:00:00",
+        "description": "",
+        "openEnd": false,
+        "location": Locations.MainStage,
+        "type": GigType.Act,
+    },
     
     // Workshops
     {

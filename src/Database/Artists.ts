@@ -15,6 +15,7 @@ import picaro from './ArtistImages/picaro.jpg'
 import sozinhoo from './ArtistImages/sozinhoo.jpg'
 import goodlookingwilson from './ArtistImages/goodlookingwilson.jpg'
 import tesaKonstrukt from './ArtistImages/tesaKonstrukt.jpg'
+import ludschgi from './ArtistImages/ludschgi.jpg'
 
 export enum SocialPlatforms {
     Spotify = 'spotify',
@@ -182,6 +183,12 @@ const artists: Artist[] = [
         "name": "Solzinho",
         "description": "Als leidenschaftliche Tänzerin und Liebhaberin elektronischer Klänge verstärkt uns dieses Jahr auch Solzinho auf der Tanzwiese. Am Donnerstag wagt sie sich für euch das erste Mal hinter die Decks und wir feiern gemeinsam ihr Debüt! Es erwarten euch kunterbunte, saftige Sounds verschiedener Genres, nach dem einfachen Motto: dancing is what to do!",
         "image": sozinhoo,
+    },
+    {
+        "id": "18",
+        "name": "Ludschgi",
+        "description": "Melodisch treibende Sommer Beats. Packt eure besten Tanzschuhe aus!",
+        "image": ludschgi,
     },
     {
         "id": "420",
