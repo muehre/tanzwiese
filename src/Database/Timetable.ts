@@ -276,7 +276,7 @@ const timetable = [
         "description": "Hochdruck! - funktioniert im Grunde wie jeder Stempel. Was dann auf Papierkarten, Taschen, T-Shirts, Tabaksbeutel... gedruckt werden soll liegt in unserer Hand.\n\nAls Druckplatten bring ich eine Sammlung an Linol-, Holz- und Gummiresten mit. In diese werden mit Hohlmessern nach Lust und, Laune die Motive geschnitten, um sie nachher mit einer Presse z.B. auf Karten, oder mit einem Löffel auf Textilien zu drucken. Das kann schwarzweiß oder (mehr-)farbig passieren und oft wiederholt werden. Sobald Motive vorhanden sind könnte man diese also austauschen und kombinieren.\n\nBringt gerne auch eigene Druckstöcke oder Werkzeug mit, falls ihr welche habt und dies vorher lest. Freu mich drauf!🎨🖼🧑‍🎨",
         "name": "Druckpresse",
         "openEnd": false,
-        "location": Locations.BatikBucht,
+        "location": Locations.Werkelwinkel,
         "type": GigType.Workshop,
     },
     {
