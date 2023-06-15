@@ -77,7 +77,7 @@ const Artist: React.FC = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
                     <h2 style={{ marginBottom: '0.875rem' }}>Künstler_in</h2>
                     {gigs.map((gig) => (
-                        <EventPreview id={gig.id} />
+                        <EventPreview key={gig.id} id={gig.id} />
                     ))}
                     {artist && artist.description && (
                     <UiBox style={{ whiteSpace: "pre-wrap" }}>{artist.description}</UiBox>

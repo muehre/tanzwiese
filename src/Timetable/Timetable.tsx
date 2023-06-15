@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
-import { useTimeTable } from '../Database'
+import { GigType, useTimeTable } from '../Database'
 import TimetableBox from './TimetableBox'
-import TimetableEvent from './TimetableEvent'
+import { TimetableActEvent, TimetableWorkshopEvent } from './TimetableEvent'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -91,7 +91,7 @@ const Timetable: React.FC = () => {
         if (startAtDate.getHours() >= 8 && startAtDate.getHours() < 13) playTime = 'morning'
         if (startAtDate.getHours() >= 13 && startAtDate.getHours() < 20) playTime = 'day'
 
-        const playDay = `${startAtDate.getFullYear()}-${startAtDate.getUTCMonth().toString().padStart(2, '0')}-${startAtDate.getDay().toString().padStart(2, '0')}`
+        const playDay = `${startAtDate.getFullYear()}-${(startAtDate.getMonth() + 1).toString().padStart(2, '0')}-${startAtDate.getDate().toString().padStart(2, '0')}`
 
         if (typeof daylieSortedTimetable[playDay] === "undefined") daylieSortedTimetable[playDay] = {}
         if (typeof daylieSortedTimetable[playDay][playTime] === "undefined") daylieSortedTimetable[playDay][playTime] = []
@@ -101,6 +101,7 @@ const Timetable: React.FC = () => {
 
     if (!daylieSortedTimetable[selectedDay]) daylieSortedTimetable[selectedDay] = {}
 
+    console.log(daylieSortedTimetable)
     const handleAddFavorite = async (id: string) => {
         let newFavorites: string[] = []
         if (favorites.indexOf(id) >= 0) {
@@ -202,14 +203,31 @@ const Timetable: React.FC = () => {
             <TimetableBox key={timeString} {...boxSettings[timeString as 'day' | 'night']}>
                 {daylieSortedTimetable[selectedDay][timeString].map(gig => (
                     <Fragment key={gig.id}>
-                        {((showFavorites && favorites.indexOf(gig.id) >= 0) || !showFavorites) && (
-                            <TimetableEvent 
+                        {(gig.type === GigType.Act && gig.artistId && ((showFavorites && favorites.indexOf(gig.id) >= 0) || !showFavorites)) && (
+                            <TimetableActEvent 
                                 endAt={gig.endAt}
                                 startAt={gig.startAt} 
                                 artistId={gig.artistId}
                                 description={gig.description}
                                 key={gig.id}
                                 openEnd={gig.openEnd}
+                                location={gig.location}
+                                type={gig.type}
+                                isFavorite={favorites.indexOf(gig.id) >= 0}
+                                onFavorize={() => handleAddFavorite(gig.id)}
+                            />
+                        )}
+
+                        {(gig.type === GigType.Workshop && gig.name && ((showFavorites && favorites.indexOf(gig.id) >= 0) || !showFavorites)) && (
+                            <TimetableWorkshopEvent 
+                                endAt={gig.endAt}
+                                startAt={gig.startAt}
+                                name={gig.name}
+                                description={gig.description}
+                                key={gig.id}
+                                openEnd={gig.openEnd}
+                                location={gig.location}
+                                type={gig.type}
                                 isFavorite={favorites.indexOf(gig.id) >= 0}
                                 onFavorize={() => handleAddFavorite(gig.id)}
                             />

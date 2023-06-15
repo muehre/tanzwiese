@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box } from '../../Ui'
+import { Box, PrimaryBox } from '../../Ui'
 import { Box as MuiBox, Link } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -19,9 +19,11 @@ type Props = {
     openEnd: boolean,
     onFavorize?: () => void
     isFavorite?: boolean
+    location: string,
+    type: string
 }
 
-const TimetableEvent: React.FC<Props> = ({ startAt, endAt, artistId, openEnd, description, onFavorize = () => {}, isFavorite = false }) => {
+const TimetableEvent: React.FC<Props> = ({ startAt, endAt, artistId, openEnd, description, onFavorize = () => {}, isFavorite = false, type, location: locationName }) => {
     const [isExtended, setIsExtended] = useState<boolean>(false)
     const artist = useArtist(artistId)
     const navigate = useNavigate()
@@ -37,7 +39,7 @@ const TimetableEvent: React.FC<Props> = ({ startAt, endAt, artistId, openEnd, de
     }
 
     return (
-        <Box>
+        <PrimaryBox>
             <MuiBox sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -79,11 +81,18 @@ const TimetableEvent: React.FC<Props> = ({ startAt, endAt, artistId, openEnd, de
                         }}>
                             {artist?.name}
                         </h5> 
+                        <MuiBox sx={{ 
+                                display: 'flex',
+                                fontSize: '0.8em',
+                            }}>
+                                {locationName}
+                            </MuiBox>
                         {description && description !== '' && (
 
                             <MuiBox sx={{ 
                                 display: 'flex',
                                 fontSize: '0.8em',
+                                opacity: '0.6'
                             }}>
                                 {description}
                             </MuiBox>
@@ -172,7 +181,7 @@ const TimetableEvent: React.FC<Props> = ({ startAt, endAt, artistId, openEnd, de
                 )}
 
             </MuiBox>
-        </Box>
+        </PrimaryBox>
     )
 }
 

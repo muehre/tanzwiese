@@ -1,3 +1,4 @@
-import TimetableEvent from './TimetableEvent'
+import TimetableActEvent from './TimetableActEvent'
+import TimetableWorkshopEvent from './TimetableWorkshopEvent'
 
-export default TimetableEvent
+export { TimetableActEvent, TimetableWorkshopEvent }
