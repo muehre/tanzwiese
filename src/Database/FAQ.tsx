@@ -57,7 +57,7 @@ const FAQ: InfoElement[] = [
                     Der Einlass ist am 15.06.23 ab 14:00 Uhr bis 20:00 Uhr. 
                 </div>
                 <div>
-                    Falls ihr früher oder später anreisen möchtet, meldet euch gerne bei uns. Die Tanzwiese findet in der Nähe von Künzelsau statt. Die genaue Adresse schicken wir euch per Mail, nachdem ihr den Unkostenbeitrag bezahlt habt.
+                    Falls ihr früher oder später anreisen möchtet, meldet euch gerne bei uns. Die Tanzwiese findet in der Nähe von Künzelsau statt. Die genaue Adresse findet ihr in der Beschreibung unserer Telegramgruppe.
                 </div>
                 <div>
                     Falls ihr mit dem Zug anreist, ist der nächste Bahnhof in Waldenburg (in Baden-Württemberg). Von dort geht es weiter mit dem Bus zur Haltestelle "Crispenhofen Haiberg Mitte" (siehe online Fahrplan auf <Link href="https://www.nvh.de" target={"_blank"}>www.nvh.de</Link>). Falls ihr am Tag der Anreise irgendwo stecken bleiben solltet, euch auf dem Weg verirrt oder sonst einfach nicht weiterkommt, meldet euch unter: 015236633514 (Tabea).
@@ -133,7 +133,7 @@ const FAQ: InfoElement[] = [
         content: (
             <>
                 <div>
-                    Haben wir keine. Es gibt aber einen Wasserhahn mit Trinkwasser auf dem Gelände. Er lässt sich öffnen UND auch wieder schließen - denkt da bitte daran. 
+                    Es gibt eine Außendusche oberhalb von Essensstand und Batikbucht. Bitte nutzt nur freundliches Shampoo, Duschgel etc. (oder keins :) , die Wiese sagt danke! Für die schnelle Wäsche gibt es auch einen Wasserhahn mit Trinkwasser auf dem Gelände. 
                 </div>
             </>
         ),

@@ -6,6 +6,7 @@ export enum Locations {
     Werkelwinkel = "Werkelwinkel",
     BatikBucht = "Batik Bucht",
     MicroRave = "Microrave",
+    PlutoPavillon = "Pluto Pavillon",
     Himmelszelt = "Himmelszelt",
 
 }
@@ -421,12 +422,12 @@ const timetable = [
     },
     {
         "id": "122",
-        "startAt": "2023-06-18T13:00:00",
-        "endAt": "2023-06-18T15:00:00",
+        "startAt": "2023-06-17T16:00:00",
+        "endAt": "2023-06-17T18:00:00",
         "description": "Ein herausstechendes Erlebnis!",
         "name": "Akupunktur",
         "openEnd": false,
-        "location": Locations.Content,
+        "location": Locations.PlutoPavillon,
         "type": GigType.Workshop,
     },
 ]

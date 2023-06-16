@@ -16,6 +16,7 @@ import sozinhoo from './ArtistImages/sozinhoo.jpg'
 import goodlookingwilson from './ArtistImages/goodlookingwilson.jpg'
 import tesaKonstrukt from './ArtistImages/tesaKonstrukt.jpg'
 import ludschgi from './ArtistImages/ludschgi.jpg'
+import gitarrob from './ArtistImages/gitarrob.jpg'
 
 export enum SocialPlatforms {
     Spotify = 'spotify',
@@ -110,6 +111,7 @@ const artists: Artist[] = [
         "id": "9",
         "name": "Gitarro B",
         "description": "Selbstgemacht und holzig; Asphalt-, wiesen- und feuergeeignet; Fetzen, Entdeckungen und Geschichten von Wind, Weite, Tiefe und Breite; Mit Rhythmus und Wärme. Lasst euch mitreißen und ein Schmunzeln ins Gesicht zaubern von Bernhard, seinen Liedern und natürlich seiner Gitarre",
+        "image": gitarrob,
     },
     {
         "id": "10",
